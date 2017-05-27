@@ -10,31 +10,31 @@ import java.util.Set;
 public class Main {
 
     public static void main(String[] args) {
-        int[] data = new int[]{3,1,6,80,65,0};
+        int[] data = new int[]{3, 1, 10, 0, 2, 4};
 //        fast(data);
         merge(data);
         System.out.println(Arrays.toString(data));
     }
 
-    private static void merge(int[] data) {
+    public static void merge(int[] data) {
         merge(data, 0, data.length-1);
     }
 
     private static void merge(int[] data, int start, int end) {
-        int mid = (start + end) / 2;
+        int mid = (start + end)/2;
         if (start < end) {
-            merge(data, start, mid);
-            merge(data, mid + 1, end);
-            mergeSwap(data, start, mid, end);
+            merge(data, start, mid-1);
+            merge(data, mid+1, end);
+            merge(data, start, end, mid);
         }
     }
 
-    private static void mergeSwap(int[] data, int start, int mid, int end) {
+    private static void merge(int[] data, int start, int end, int mid) {
         int[] temp = new int[end - start + 1];
-        int k = 0;
         int i = start;
-        int j = mid + 1;
-        while (i <= mid && j <= end) {
+        int j = mid+1;
+        int k = 0;
+        while (i <= mid && j<= end) {
             if (data[i] < data[j]) {
                 temp[k++] = data[i++];
             } else {
@@ -47,31 +47,31 @@ public class Main {
         while (j <= end) {
             temp[k++] = data[j++];
         }
-        for (int t=0; t<temp.length; t++) {
-            data[start + t] = temp[t];
+        for (int z = 0; z < temp.length; z++) {
+            data[start + z] = temp[z];
         }
     }
 
-    private static void fast(int[] data) {
-        fast(data, 0, data.length-1);
+    public static void fast(int[] data) {
+        fast(data, 0, data.length - 1);
     }
 
     private static void fast(int[] data, int start, int end) {
         if (start < end) {
-            int position = fastPartition(data, start, end);
-            fast(data, 0, position -1);
-            fast(data, position+1, end);
+            int mid = change(data, start, end);
+            fast(data, start, mid);
+            fast(data, mid + 1, end);
         }
     }
 
-    private static int fastPartition(int[] data, int start, int end) {
+    private static int change(int[] data, int start, int end) {
         int base = data[start];
         while (start < end) {
-            while (start<end && data[end]>base) {
+            while (start < end && base < data[end]) {
                 end --;
             }
             swap(data, start, end);
-            while (start<end && data[start]<base) {
+            while (start < end && base > data[start]) {
                 start ++;
             }
             swap(data, start, end);

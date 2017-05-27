@@ -33,6 +33,7 @@ public class AlarmAgent {
                 return null;
             }
         };
+        blocker.callWithGuard(guardedAction);
     }
 
     public void doSendAlarm(AlarmInfo alarmInfo) {
