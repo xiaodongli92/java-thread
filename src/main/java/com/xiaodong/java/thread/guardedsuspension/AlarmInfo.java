@@ -9,9 +9,12 @@ public final class AlarmInfo {
 
     private final String message;
 
-    public AlarmInfo(String title, String message) {
+    private final AlarmType type;
+
+    public AlarmInfo(String title, String message, AlarmType type) {
         this.title = title;
         this.message = message;
+        this.type = type;
     }
 
     public String getTitle() {
@@ -20,5 +23,9 @@ public final class AlarmInfo {
 
     public String getMessage() {
         return message;
+    }
+
+    public AlarmType getType() {
+        return type;
     }
 }

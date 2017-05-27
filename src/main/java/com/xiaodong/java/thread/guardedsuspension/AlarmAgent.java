@@ -36,7 +36,7 @@ public class AlarmAgent {
         blocker.callWithGuard(guardedAction);
     }
 
-    public void doSendAlarm(AlarmInfo alarmInfo) {
+    private void doSendAlarm(AlarmInfo alarmInfo) {
         //省略其他代码
 
         //模拟发送至告警服务器
