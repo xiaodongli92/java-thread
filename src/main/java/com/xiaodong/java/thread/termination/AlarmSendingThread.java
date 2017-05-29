@@ -1,6 +1,5 @@
 package com.xiaodong.java.thread.termination;
 
-import com.sun.deploy.util.StringUtils;
 import com.xiaodong.java.thread.guardedsuspension.AlarmAgent;
 import com.xiaodong.java.thread.guardedsuspension.AlarmInfo;
 import com.xiaodong.java.thread.guardedsuspension.AlarmType;

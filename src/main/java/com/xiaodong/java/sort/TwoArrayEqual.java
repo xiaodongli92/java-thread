@@ -1,8 +1,5 @@
 package com.xiaodong.java.sort;
 
-import sun.jvm.hotspot.utilities.Assert;
-
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
